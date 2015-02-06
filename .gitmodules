@@ -1,0 +1,6 @@
+[submodule "qml-extras"]
+	path = qml-extras
+	url = https://github.com/papyros/qml-extras.git
+[submodule "qml-material"]
+	path = qml-material
+	url = https://github.com/papyros/qml-material.git
