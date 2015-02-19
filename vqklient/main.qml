@@ -21,6 +21,7 @@ import QtQuick.Window 2.2
 import QtQuick.Controls 1.3 as Controls
 import Material 0.1 as Material
 import Material 0.1
+import VQKlient 0.1
 //import Material.Transitions 0.1 as Transitions
 //import QtQuick.Controls 1.3
 
@@ -38,7 +39,7 @@ Controls.ApplicationWindow {
         id: toolbar
         width: parent.width
         backgroundColor: Theme.primaryColor
-        content: Material.IconButton{
+        Material.IconButton{
             id: backAction
             name: "navigation/arrow_back"
             color: "white"
@@ -74,7 +75,7 @@ Controls.ApplicationWindow {
                 id: visibilityTransition
                 NumberAnimation{
                     properties: "opacity,scale";
-                    duration: dialogView.duration;
+                    duration: 300;
                     easing.type: Easing.OutCubic
                     onStopped: {
                         if ( backAction.state == "invisible" ) {
@@ -130,7 +131,6 @@ Controls.ApplicationWindow {
         Item{
             id: mainView
             anchors.fill: parent
-            anchors.margins: Material.units.dp(20)
 
             ListView {
                 id: dialogsView

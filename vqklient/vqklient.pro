@@ -2,7 +2,8 @@ TEMPLATE = app
 
 QT += qml quick widgets
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    DialogsModel.cpp
  CONFIG+=qml_debug
 DEFINES += QMLJSDEBUGGER
 RESOURCES += qml.qrc
@@ -26,3 +27,14 @@ DISTFILES += \
     android/gradlew
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../vqk/vqk/release/ -lvqk
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../vqk/vqk/debug/ -lvqk
+else:unix: LIBS += -L$$OUT_PWD/../vqk/vqk/ -lvqk
+LIBS += -L$$OUT_PWD/../vqk/vqk/ -lvqk
+
+INCLUDEPATH += $$PWD/../vqk/
+DEPENDPATH += $$PWD/../vqk/
+
+HEADERS += \
+    DialogsModel.h

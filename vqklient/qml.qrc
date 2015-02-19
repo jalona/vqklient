@@ -3,7 +3,6 @@
         <file>main.qml</file>
         <file>Message.qml</file>
         <file>DialogView.qml</file>
-        <file>DialogsModel.qml</file>
         <file>ExpandAnimation.qml</file>
     </qresource>
 </RCC>

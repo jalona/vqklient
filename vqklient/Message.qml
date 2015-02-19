@@ -35,7 +35,7 @@ Item {  //Uncomment for slow devices.
 
     signal clicked()
 
-// Comment fot if using Material.Card instead of Item.
+// Comment if using Material.Card instead of Item.
     Material.ThinDivider {
         anchors.bottom: parent.bottom
         anchors.leftMargin: 0
@@ -47,7 +47,10 @@ Item {  //Uncomment for slow devices.
     Material.Ink {
         id: ink
         anchors.fill: parent
-        onClicked: messageDelegate.clicked()
+        onClicked: {
+            console.log(photo.sourceSize.width)
+            messageDelegate.clicked()
+        }
     }
 
     ColumnLayout{
@@ -59,6 +62,7 @@ Item {  //Uncomment for slow devices.
             Layout.alignment: Qt.AlignLeft
 
             Image{
+                id: photo
                 source: messageDelegate.image
                 sourceSize.height: messageDelegate.height - Material.units.dp(20)
                 sourceSize.width: messageDelegate.height

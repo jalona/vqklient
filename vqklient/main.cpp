@@ -14,11 +14,18 @@
  * Copyright (C) 2015 Mikhail Ivchenko <ematirov@gmail.com>
 **/
 
+#include "vqk/Api.h"
+
+#include "DialogsModel.h"
+
 #include <QApplication>
 #include <QQmlApplicationEngine>
+#include <QtQuick/QQuickView>
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
+    qmlRegisterType<DialogsModel>("VQKlient",0,1,"DialogsModel");
+    VQK::Api api;
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
